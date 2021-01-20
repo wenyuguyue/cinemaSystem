@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: SARFTClient
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: lichaofu
+Implementation-Vendor-Id: com.icss
+Build-Jdk: 1.8.0_251
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

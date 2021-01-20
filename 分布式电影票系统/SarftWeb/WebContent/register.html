@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<!--
+Beyond Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3
+Version: 1.0.0
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--Head-->
+<head>
+    <meta charset="utf-8" />
+    <title>Register Page</title>
+
+    <meta name="description" content="register page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="assets/css/beyond.min.css" rel="stylesheet" />
+    <link href="assets/css/demo.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="assets/js/skins.min.js"></script>
+    <script src="assets/js/jquery-2.0.3.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+    
+	<script src="assets/js/datetime/bootstrap-datetimepicker.js"></script> 
+    <script src="assets/js/datetime/bootstrap-datetimepicker.zh-CN.js"></script> 
+    <script type="text/javascript">
+    $(function(){
+        $('#stime').datetimepicker({
+             forceParse: 0,//设置为0，时间不会跳转1899，会显示当前时间。
+             language: 'zh-CN',//显示中文
+             format: 'yyyy/mm/dd',//显示格式
+             minView: "month",//设置只显示到月份
+             initialDate: new Date(),//初始化当前日期
+             autoclose: true,//选中自动关闭
+             todayBtn: true,//显示今日按钮
+             todayHighlight: true
+         })
+        //$("#date").datetimepicker("setDate", new Date() );
+        //设置显示默认当天的时间
+        $("#check").click(function(){
+        	if($("#check").prop("checked")==false){
+        		$("#btn").prop("disabled",true)
+        	}else{
+        		$("#btn").prop("disabled",false)
+        	}
+        })   
+     })
+     
+     function check1(){
+    	if ($("#pwd").val()!=$("#pwd2").val()) 
+    	{
+    	alert("两次密码不一致！");
+    	return false;
+    	}
+    	return true;
+    }
+    
+    function checkName(){
+    	$.ajax({
+    		url:"checkName.do",
+    		data:{
+    			name:$("#name").val()
+    		},
+    		method:"post",
+    		dataType:"json",
+    		success:function(d){  			
+    			if (d.code == "200") {
+    				$("#unameAlert").css("color","green")
+    				$("#unameAlert").text("")
+				} else {
+					$("#unameAlert").css("color","red")
+					$("#unameAlert").text(d.msg)
+				}
+    		}
+    	})
+    }
+    function check22() {
+		var pwd2Alert = document.getElementById("pwd2Alert");
+		pwd2Alert.innerText = "";
+		var pwd = document.getElementById("pwd").value;
+		var pwd2 = document.getElementById("pwd2").value;
+		if (pwd2 != pwd) {
+			pwd2Alert.innerText = "用户密码不一致"
+			pwd2Alert.setAttribute("style", "color:red")
+		}
+	}
+    </script>
+</head>
+<!--Head Ends-->
+<!--Body-->
+<body>
+    <div class="register-container animated fadeInDown">
+        <div class="registerbox bg-white">
+            <div class="registerbox-title">注册</div>
+			<form action="regist.do" method="post">
+            <div class="registerbox-caption ">请填入注册信息</div>
+            <div class="registerbox-textbox">
+                <input type="text" class="form-control" placeholder="输入用户名"  id="name" name="name" required="required" onkeyup="checkName()"/><span id="unameAlert"></span>
+            </div>
+            <div class="registerbox-textbox">
+                <input type="password" class="form-control" placeholder="输入密码"  id="pwd" name="pwd" required="required"/><span id="pwdAlert"></span>
+            </div>
+            <div class="registerbox-textbox">
+                <input type="password" class="form-control" placeholder="再次输入密码" id="pwd2" required="required" onkeyup="check22()"/><span id="pwd2Alert"></span>
+            </div>
+            <hr class="wide" />
+            <div class="registerbox-textbox">
+                <input type="text" class="form-control" placeholder="姓名"  name="rname" required="required"/>
+            </div>
+            <div class="registerbox-textbox">
+                <input type="text" class="form-control" placeholder="住址"  name="family" required="required"/>
+            </div>
+            <div class="registerbox-textbox">
+                <div class="row">
+                  	<div class="col-lg-12 col-sm-12 col-xs-12 padding-right-10">
+                        <input type="text" id="stime" name="stime"  placeholder="出生日期" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="registerbox-textbox no-padding-bottom">
+                <div class="checkbox">
+                    <label>
+                        <input id="check" type="checkbox" class="colored-primary" checked="checked">
+                        <span class="text darkgray">我同意 <a class="themeprimary">相关协议</a> 和法律法规政策</span>
+                    </label>
+                </div>
+            </div>
+            <div class="registerbox-submit">
+                <input type="submit" class="btn btn-primary pull-right" value="提交" id="btn" onclick="return check1()">
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Basic Scripts-->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.min.js"></script>
+    <!--Google Analytics::Demo Only-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-52103994-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+<!--Body Ends-->
+</html>

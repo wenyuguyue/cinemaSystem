@@ -1,0 +1,639 @@
+﻿<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
+Version: 1.0.0
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Head -->
+<head>
+    <meta charset="utf-8" />
+    <title>Flot Charts</title>
+
+    <meta name="description" content="flot charts" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/weather-icons.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="assets/css/beyond.min.css" rel="stylesheet" />
+    <link href="assets/css/demo.min.css" rel="stylesheet" />
+    <link href="assets/css/typicons.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="assets/js/skins.min.js"></script>
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loading-progress">
+            <div class="rotator">
+                <div class="rotator">
+                    <div class="rotator colored">
+                        <div class="rotator">
+                            <div class="rotator colored">
+                                <div class="rotator colored"></div>
+                                <div class="rotator"></div>
+                            </div>
+                            <div class="rotator colored"></div>
+                        </div>
+                        <div class="rotator"></div>
+                    </div>
+                    <div class="rotator"></div>
+                </div>
+                <div class="rotator"></div>
+            </div>
+            <div class="rotator"></div>
+        </div>
+    </div>
+    <!--  /Loading Container -->
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-left">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            <img src="assets/img/logo.png" alt="" />
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings --->
+                <div class="navbar-header pull-right">
+					<div class="navbar-account">
+						<ul class="account-area">
+							<li><a class="login-area dropdown-toggle"
+								data-toggle="dropdown">
+									<div class="avatar" title="View your public profile">
+										<img src="assets/img/avatars/adam-jansen.jpg">
+									</div>
+									<section>
+										<h2>
+											<span class="profile"><span id="username"></span></span>
+										</h2>
+									</section>
+							</a> <!--Login Area Dropdown-->
+								<ul
+									class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+									<li class="username"><a id="username"></a></li>
+									<!--Avatar Area-->
+									<li>
+										<div class="avatar-area">
+										<img class="avatar" src="assets/img/avatars/adam-jansen.jpg" onclick="fileSelect();">
+												 <form id="form_face" enctype="multipart/form-data" style="width:auto;">
+												  <input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" style="display:none;">
+												 </form>		 
+										</div>
+									</li>
+									<!--Theme Selector Area-->
+									<li class="theme-area">
+										<ul class="colorpicker" id="skin-changer">
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #5DB2FF;"
+												rel="assets/css/skins/blue.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #2dc3e8;"
+												rel="assets/css/skins/azure.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #03B3B2;"
+												rel="assets/css/skins/teal.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #53a93f;"
+												rel="assets/css/skins/green.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #FF8F32;"
+												rel="assets/css/skins/orange.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #cc324b;"
+												rel="assets/css/skins/pink.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #AC193D;"
+												rel="assets/css/skins/darkred.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #8C0095;"
+												rel="assets/css/skins/purple.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #0072C6;"
+												rel="assets/css/skins/darkblue.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #585858;"
+												rel="assets/css/skins/gray.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #474544;"
+												rel="assets/css/skins/black.min.css"></a></li>
+											<li><a class="colorpick-btn" href="#"
+												style="background-color: #001940;"
+												rel="assets/css/skins/deepblue.min.css"></a></li>
+										</ul>
+									</li>
+									<!--/Theme Selector Area-->
+									<li class="dropdown-footer"><a href="login.html"> 退出 </a>
+									</li>
+								</ul> <!--/Login Area Dropdown--></li>
+                            <!-- /Account Area -->
+                            <!--Note: notice that setting div must start right after account area list.
+                            no space must be between these elements-->
+                            <!-- Settings -->
+                        </ul><div class="setting">
+                            <a id="btn-setting" title="Setting" href="#">
+                                <i class="icon glyphicon glyphicon-cog"></i>
+                            </a>
+                        </div><div class="setting-container">
+                            <label>
+                                <input type="checkbox" id="checkbox_fixednavbar">
+                                <span class="text">Fixed Navbar</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="checkbox_fixedsidebar">
+                                <span class="text">Fixed SideBar</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="checkbox_fixedbreadcrumbs">
+                                <span class="text">Fixed BreadCrumbs</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="checkbox_fixedheader">
+                                <span class="text">Fixed Header</span>
+                            </label>
+                        </div>
+                        <!-- Settings -->
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>
+    </div>
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            <!-- Page Sidebar -->
+            <div class="page-sidebar" id="sidebar">
+                <!-- Page Sidebar Header-->
+                <div class="sidebar-header-wrapper">
+                    <input type="text" class="searchinput" />
+                    <i class="searchicon fa fa-search"></i>
+                    <div class="searchhelper">Search Reports, Charts, Emails or Notifications</div>
+                </div>
+                <!-- /Page Sidebar Header -->
+                <!-- Sidebar Menu -->
+              <ul class="nav sidebar-menu">
+					<!--Dashboard-->
+					<li class="active"><a href="index.html"> <i
+							class="menu-icon glyphicon glyphicon-home"></i> <span
+							class="menu-text"> 首页 </span>
+					</a></li>
+					<!--Tables-->
+					<li><a href="#" class="menu-dropdown"> <i
+							class="menu-icon fa fa-table"></i> <span class="menu-text">信息中心
+						</span> <i class="menu-expand"></i>
+					</a>
+
+						<ul class="submenu">
+							<li><a href="tables-data.html"> <span class="menu-text">影院信息</span>
+							</a></li>
+							<li><a href="tables-data.html"> <span class="menu-text">放映计划</span>
+							</a></li>
+							<li><a href="office.html"> <span class="menu-text">票房信息</span>
+							</a></li>
+							<li><a href="tables-data.html"> <span class="menu-text">售票信息</span>
+							</a></li>
+						</ul></li>
+					<!--Forms-->
+					<li><a href="#" class="menu-dropdown"> <i
+							class="menu-icon fa fa-pencil-square-o"></i> <span
+							class="menu-text"> 管理平台 </span> <i class="menu-expand"></i>
+					</a>
+
+						<ul class="submenu">
+							<li><a href="filmmg.html"> <span
+									class="menu-text">影片管理</span>
+							</a></li>
+						</ul></li>
+					<!--Charts-->
+					<li><a href="#" class="menu-dropdown"> <i
+							class="menu-icon fa fa-bar-chart-o"></i> <span class="menu-text">
+								报表系统</span> <i class="menu-expand"></i>
+					</a>
+						<ul class="submenu">
+							<li><a href="flot.html"> <span class="menu-text">驾驶舱</span>
+							</a></li>
+						</ul></li>
+					</ul>
+                <!-- /Sidebar Menu -->
+            </div>
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#">主页</a>
+                        </li>
+                        <li>
+                            <a href="#">报表系统</a>
+                        </li>
+                        <li class="active">驾驶舱</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1>
+                            	报表系统
+                            <small>
+                                <i class="fa fa-angle-right"></i>
+                                	驾驶舱
+                            </small>
+                        </h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption">院线售票排行</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+
+                                    <div id="bar-chart" class="chart chart-lg"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-space"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <span class="widget-caption">Selectable & Zoomable & Trackable Line Chart</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div id="selectable-chart" class="chart chart-lg"></div>
+
+                                        </div>
+                                        <!--<div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <button class="btn btn-default" id="setSelection">Select year 1994</button>
+                                                    <button class="btn btn-default" id="clearSelection">Clear selection</button>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="pull-right">
+                                                       <label><input id="zoom" type="checkbox" />Zoom to selection</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-space"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption">票房实时数据</span>
+                                    <div class="widget-buttons">
+                                    	请选择查询电影
+                                   		<select id="filmcheck" class="fa fa-expand" style="width:200px">
+                                   		</select>
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+
+                                    <div id="realtime-chart" class="chart chart-lg"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-space"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption">Stacked Chart</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <div id="stacked-chart" class="chart chart-lg"></div>
+                                    <div class="btn-toolbar">
+                                        <div class="btn-group stackControls">
+                                            <input type="button" class="btn btn-default" value="With stacking">
+                                            <input type="button" class="btn btn-default" value="Without stacking">
+                                        </div>
+                                        <div class="vertical-space">
+                                        </div>
+                                        <div class="btn-group graphControls pull-right">
+                                            <input type="button" class="btn btn-default" value="Bars">
+                                            <input type="button" class="btn btn-default" value="Lines">
+                                            <input type="button" class="btn btn-default" value="Lines with steps">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-space"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom border-lightred">
+                                    <span class="widget-caption">Visitor Chart with Preview</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <div id="visitors-chart" class="chart"></div>
+                                    <div class="well">
+                                        <div id="visitors-chart-overview" class="chart chart-sm"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-space"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption">Chart with Annotations</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    
+                                        <div id="annotation-chart" class="chart chart-xl"></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizontal-space"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption" id="title">Pie Chart</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-3">
+                                                <div class="btn-toolbar pull-left">
+                                                    <div class="btn-group-vertical">
+                                                        <button id="example-1" class="btn btn-default btn-sm">Default Options</button>
+                                                        <button id="example-2" class="btn btn-default btn-sm">Without Legend</button>
+                                                        <button id="example-3" class="btn btn-default btn-sm">Label Formatter</button>
+                                                        <button id="example-4" class="btn btn-default btn-sm">Label Radius</button>
+                                                        <button id="example-5" class="btn btn-default btn-sm">Label Styles #1</button>
+                                                        <button id="example-6" class="btn btn-default btn-sm">Label Styles #2</button>
+                                                        <button id="example-7" class="btn btn-default btn-sm">Hidden Labels</button>
+                                                        <button id="example-8" class="btn btn-default btn-sm">Combined Slice</button>
+                                                        <button id="example-9" class="btn btn-default btn-sm">Rectangular Pie</button>
+                                                        <button id="example-10" class="btn btn-default btn-sm">Tilted Pie</button>
+                                                        <button id="example-11" class="btn btn-default btn-sm">Donut Hole</button>
+                                                        <button id="example-12" class="btn btn-default btn-sm">Interactivity</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-xs-12 col-md-9">
+                                                <div id="pie-chart" class="chart chart"></div>
+                                                <!--<p id="description"></p>-->
+                                            </div>
+
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="widget">
+                                <div class="widget-header ">
+                                    <span class="widget-caption" id="title">Horizonal Chart</span>
+                                    <div class="widget-buttons">
+                                        <a href="#" data-toggle="maximize">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="#" data-toggle="collapse">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <a href="#" data-toggle="dispose">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    
+                                        <div id="horizonal-chart" class="chart chart-lg"></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <!--Basic Scripts-->
+    <script src="assets/js/jquery-2.0.3.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assets/js/beyond.min.js"></script>
+
+    <!--Page Related Scripts-->
+    <script src="assets/js/charts/flot/jquery.flot.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.orderBars.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.selection.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.crosshair.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.stack.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.time.js"></script>
+    <script src="assets/js/charts/flot/jquery.flot.pie.js"></script>
+    <script src="assets/js/charts/flot/flot-init.js"></script>
+
+    <script type="text/javascript">
+        $(window).bind("load", function () {
+        	getfilm();
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+            InitiateFlotBarChart.init();
+            InitiateFlotSelectableChart.init();
+            InitiateRealTimeChart.init();
+            InitiateStackedChart.init();
+            InitiateVisitorChart.init();
+            InitiateAnnotationChart.init();
+            InitiatePieChart.init();
+            InitiateHorizonalChart.init();
+        });
+    </script>
+
+    <!--Google Analytics::Demo Only-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-52103994-1', 'auto');
+        ga('send', 'pageview');
+
+    	var arr = document.cookie.split(';');           
+        for (var i = 0; i < arr.length; i++) {
+            var arr2 = arr[i].split('=');
+            var arrTest = arr2[0].trim(); //此处的trim一定要加，个人对这不太理解，之前做项目时候才发现，cookie从第二个开始就会出现空格，你传入的cookie名如果在第一个，就能取出，如果在第二个或者以后，每次取就会有空格，就会匹配不成功              
+            if (arrTest == name) {        //当然也可以用正则匹配取cookie，这样更好            
+                $("#username").text(arr2[1])
+            }
+        }
+        function getfilm(){
+        	$.ajax({
+				url:"queryMovie.do",
+				method:"post",
+				dataType:"json",
+				async: false, // 同步
+				success:function(d){
+					$("#filmcheck").empty()
+					$.each(d,function(k,v){
+						$("#filmcheck").append("<option value='"+v.code+"'>"+v.name+"</option>")
+					})			
+				}
+			})
+        }
+        
+    </script>
+</body>
+<!--  /Body -->
+</html>

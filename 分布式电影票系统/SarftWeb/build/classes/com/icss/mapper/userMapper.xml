@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icss.mapper.IUserMapper">
+<select id="login" resultType="user">
+select * from tuser where name=#{name} and pwd=#{pwd}
+</select>
+<select id="isValidUname" resultType="String">
+select name from tuser where name = #{name}
+</select>
+<insert id="regist" parameterType="user">
+insert into tuser(name,pwd,rname,family,stime) values(#{name},#{pwd},#{rname},#{family},#{stime})
+</insert>
+</mapper>

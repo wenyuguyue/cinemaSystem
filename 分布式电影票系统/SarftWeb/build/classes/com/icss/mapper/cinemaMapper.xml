@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icss.mapper.ICinemaMapper">
+<select id="queryCinema" resultType="cinema"> 
+select * from cinema
+</select>
+<update id="editCinema"> 
+update cinema set #{filed}=#{value} where code=#{code} 
+</update>
+<delete id="deleteCinema">
+delete from cinema where code=#{code}
+</delete>
+<insert id="addCinema" parameterType="cinema">
+insert into cinema(code,name,corporation,contact,telephone,fax,cinemas,status,screen_count) values(#{code},#{name},#{corporation},#{contact},#{telephone},#{fax},#{cinemas},#{status},#{screen_count})
+</insert>
+<select id="queryMoviehall" resultType="moviehall">
+select mh.*,c.name from cinema c inner join tmoviehall mh on c.cid=mh.cid
+</select>
+<delete id="deleteMoviehall">
+delete from tmoviehall where hno=#{hno}
+</delete>
+<select id="queryCinemaCid" resultType="cinema">
+select * from cinema
+</select>
+<insert id="addMoviehall" parameterType="moviehall">
+insert into tmoviehall(cid,code,name,allrow,allcol,hstyle,seat_count) values(#{cid},#{code},#{name},#{allrow},#{allcol},#{hstyle},#{seat_count})
+</insert>
+</mapper>

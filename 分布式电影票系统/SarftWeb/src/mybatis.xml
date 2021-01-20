@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<typeAlias alias="moviehall" type="com.icss.entity.Moviehall" />
+		<typeAlias alias="cinema" type="com.icss.entity.Cinema" />
+		<typeAlias alias="filmplan" type="com.icss.entity.FilmPlan"/>
+		<typeAlias alias="movie" type="com.icss.entity.Movie" />
+		<typeAlias alias="office" type="com.icss.entity.Office" />
+		<typeAlias alias="user" type="com.icss.entity.User"/>
+	</typeAliases>
+	<!-- 映射文件 -->
+	<mappers>
+		<mapper resource="com/icss/mapper/cinemaMapper.xml" />
+		<mapper resource="com/icss/mapper/userMapper.xml" />
+		<mapper resource="com/icss/mapper/movieMapper.xml" />
+		<mapper resource="com/icss/mapper/filmMapper.xml" />
+	</mappers>
+</configuration>

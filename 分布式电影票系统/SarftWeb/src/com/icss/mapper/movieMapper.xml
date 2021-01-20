@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icss.mapper.IMovieMapper">
+<select id="queryMovie" resultType="movie">
+select * from tmovie
+</select>
+<delete id="deleteMovie">
+delete from tmovie where code=#{code}
+</delete>
+<insert id="addMovie" parameterType="movie">
+insert into tmovie(code,name,duration,area,type,director,status,publish_date,publisher,producer,cast,version,introduction,cover) values(#{code},#{name},#{duration},#{area},#{type},#{director},#{status},#{publish_date},#{publisher},#{producer},#{cast},#{version},#{introduction},#{cover})
+</insert>
+<update id="editMovie" parameterType="movie">
+update tmovie set name=#{name},duration=#{duration},area=#{area},type=#{type},director=#{director},status=#{status},publish_date=#{publish_date},publisher=#{publisher},producer=#{producer},cast=#{cast},version=#{version},introduction=#{introduction},cover=#{cover} where code=#{code}
+</update>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icss.mapper.IFilmMapper">
+<select id="queryFilm1" resultType="filmplan">
+select fp.*,m.name,m.cover from tfilmplan fp left join tmovie m on fp.film_code=m.code where valid=0
+</select>
+<select id="queryFilm2" resultType="filmplan">
+select fp.*,m.name,m.cover from tfilmplan fp left join tmovie m on fp.film_code=m.code where valid=1 and session_datetime >= now()
+</select>
+<select id="queryFilm3" resultType="filmplan">
+<![CDATA[select fp.*,m.name,m.cover from tfilmplan fp left join tmovie m on fp.film_code=m.code where valid=1 and session_datetime < now()]]>
+</select>
+<update id="editFilmPlan">
+update tfilmplan set #{field}=#{value} where fpid=#{fpid}
+</update>
+<delete id="deleteFilmPlan">
+delete from tfilmplan where fpid=#{fpid}
+</delete>
+<select id="queryOffice" resultType="office">
+select m.*,count(*) as totalnum,count(*)*s.price as totalmoney from tsale s left join tmovie m on s.film_code=m.code group by m.code
+</select>
+
+
+</mapper>
